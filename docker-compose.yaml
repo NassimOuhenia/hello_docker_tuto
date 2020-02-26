@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+        mon_app:
+                image: mon_image
+                depends_on:
+                        - redis
+                ports:
+                        - "800:80"
+                networks:
+                        - mon_reseau
+        redis:
+                image: redis
+                ports:
+                        - "6379:6379"
+                networks:
+                        - mon_reseau
+
+networks:
+        mon_reseau:
+
+
